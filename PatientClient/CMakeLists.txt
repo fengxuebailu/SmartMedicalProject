@@ -34,6 +34,11 @@ if(ANDROID)
     mainwindow.ui
   )
 else()
+    set(RESOURCE_FILES
+        patientclient.qrc
+    )
+    qt5_add_resources(RESOURCE_SOURCES ${RESOURCE_FILES})
+
   add_executable(PatientClient
     main.cpp
     mainwindow.cpp
@@ -63,6 +68,9 @@ else()
     doctordetailsdialog.cpp
     doctordetailsdialog.h
     doctordetailsdialog.ui
+    patientclient.qrc
+
+    ${RESOURCE_SOURCES}
   )
 endif()
 

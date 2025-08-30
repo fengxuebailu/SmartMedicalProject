@@ -16,6 +16,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     m_loggedInPatientId = 1; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
+
+//    QPixmap testPixmap(":/icons/icon_home_profile.png"); // <-- 替换成你的正确路径
+//     if (testPixmap.isNull()) {
+//         qDebug() << "致命错误：无法从资源文件加载图标 :/icons/icon_home_profile.png";
+//     } else {
+//         qDebug() << "成功：从资源文件加载了图标，尺寸为：" << testPixmap.size();
+//     }
 }
 
 MainWindow::~MainWindow()
