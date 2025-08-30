@@ -15,7 +15,7 @@ bool initDatabase()
     // 它将成为整个应用程序的“默认连接”。
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("127.0.0.1");         // 主机地址
-    db.setDatabaseName("smart_medical");    // 数据库名
+    db.setDatabaseName("smart_clinic");    // 数据库名
     db.setUserName("root");                 // 数据库用户名
     db.setPassword("@Aa1146978345"); // !!! 替换成你设置的那个强密码 !!!
 

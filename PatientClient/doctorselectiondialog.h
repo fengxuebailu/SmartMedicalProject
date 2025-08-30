@@ -34,12 +34,10 @@ private slots:
 private:
     // 私有辅助函数
     void loadDepartments();
-    void loadDoctors(int departmentId);
+    // 函数签名修改为接收科室名称
+    void loadDoctors(const QString &departmentName);
 
     Ui::DoctorSelectionDialog *ui;
-
-    // 用于存储科室名称和其对应的数据库ID
-    QMap<QString, int> m_departmentIdMap;
 
     // 用于临时存储用户选中的医生信息
     int m_selectedDoctorId;

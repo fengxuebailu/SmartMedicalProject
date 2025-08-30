@@ -15,8 +15,8 @@ public:
     explicit MyAppointmentsDialog(QWidget *parent = nullptr);
     ~MyAppointmentsDialog();
 
-    // 公共方法，用于从外部（如MainWindow）调用以加载数据
-    void loadAppointments(int patientId);
+    // 函数签名已修改：接收通用的用户ID (userId)
+    void loadAppointments(int userId);
 
 private slots:
     void on_closeButton_clicked();

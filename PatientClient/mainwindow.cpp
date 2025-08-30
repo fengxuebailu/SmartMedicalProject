@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    m_loggedInPatientId = 1; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
+    m_loggedInUserId = 101; ; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
 
 //    QPixmap testPixmap(":/icons/icon_home_profile.png"); // <-- 替换成你的正确路径
 //     if (testPixmap.isNull()) {
@@ -69,7 +69,7 @@ void MainWindow::on_doctorInfoButton_clicked()
 void MainWindow::on_emrButton_clicked()
 {
     EmrDialog dialog(this);
-    dialog.loadPatientRecords(m_loggedInPatientId); // 传入已登录的患者ID
+    dialog.loadPatientRecords(m_loggedInUserId); // 传入已登录的患者ID
     dialog.exec();
 }
 
@@ -86,7 +86,7 @@ void MainWindow::on_medicationReminderButton_clicked()
 void MainWindow::on_paymentButton_clicked()
 {
     BillsDialog dialog(this);
-    dialog.loadBills(m_loggedInPatientId); // 传入已登录的患者ID
+    dialog.loadBills(m_loggedInUserId); // 传入已登录的患者ID
     dialog.exec();
 }
 
@@ -102,7 +102,7 @@ void MainWindow::on_myAppointmentsButton_clicked()
     // 创建“我的预约”对话框实例
     MyAppointmentsDialog dialog(this);
     // 调用它的公共方法，传入当前登录的患者ID来加载数据
-    dialog.loadAppointments(m_loggedInPatientId);
+    dialog.loadAppointments(m_loggedInUserId);
     // 以模态方式显示对话框
     dialog.exec();
 }
@@ -125,7 +125,7 @@ void MainWindow::on_consultationButton_clicked()
         // 步骤3：创建并显示时间选择对话框
         TimeSelectionDialog timeDialog(this);
         // 将从上一步获取的医生信息，以及当前登录的患者信息，传递给时间选择对话框
-        timeDialog.setAppointmentInfo(doctorId, doctorName, m_loggedInPatientId);
+        timeDialog.setAppointmentInfo(doctorId, doctorName, m_loggedInUserId);
         // 以模态方式显示对话框
         timeDialog.exec();
     });

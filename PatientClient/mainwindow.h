@@ -30,6 +30,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    int m_loggedInPatientId;
+    int m_loggedInUserId;
 };
 #endif // MAINWINDOW_H

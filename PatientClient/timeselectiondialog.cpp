@@ -5,6 +5,8 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QMessageBox>
+#include <QDateTime>
+#include <QSet>
 
 TimeSelectionDialog::TimeSelectionDialog(QWidget *parent) :
     QDialog(parent),
@@ -26,112 +28,89 @@ void TimeSelectionDialog::setAppointmentInfo(int doctorId, const QString &doctor
     m_doctorId = doctorId;
     m_patientId = patientId;
     ui->doctorInfoLabel->setText(QString("您正在为【%1】医生进行预约").arg(doctorName));
-
-    // 初始加载当天的时间段
-    on_calendarWidget_clicked(QDate::currentDate());
+    updateAvailableTimes(ui->calendarWidget->selectedDate()); // 初始加载当天的时间
 }
 
-// ============== 核心修改部分 1 ==============
-void TimeSelectionDialog::on_calendarWidget_clicked(const QDate &date)
+// 新的核心函数：更新可用时间
+void TimeSelectionDialog::updateAvailableTimes(const QDate &date)
 {
     ui->timeSlotsListWidget->clear();
     ui->confirmButton->setEnabled(false);
 
+    // 1. 定义医生一天的工作时间段 (假设上午9-12，下午14-17，每小时一个号)
+    QList<QTime> workingHours;
+    for (int h = 9; h < 12; ++h) workingHours.append(QTime(h, 0));
+    for (int h = 14; h < 17; ++h) workingHours.append(QTime(h, 0));
+
+    // 2. 查询当天已被预约的时间
+    QSet<QTime> bookedTimes;
     QSqlQuery query;
-    // 查询指定医生、指定日期、并且尚未被预约（is_booked = FALSE）的所有时间段
-    query.prepare("SELECT time_slot FROM doctor_schedules "
-                  "WHERE doctor_id = :doctorId AND schedule_date = :scheduleDate AND is_booked = FALSE "
-                  "ORDER BY time_slot ASC");
+    query.prepare("SELECT scheduled_at FROM appointments "
+                  "WHERE doctor_id = :doctorId AND DATE(scheduled_at) = :selectedDate "
+                  "AND status IN ('booked', 'completed')");
     query.bindValue(":doctorId", m_doctorId);
-    query.bindValue(":scheduleDate", date);
+    query.bindValue(":selectedDate", date.toString(Qt::ISODate));
 
     if (!query.exec()) {
-        qDebug() << "查询排班失败: " << query.lastError().text();
-        QMessageBox::critical(this, "数据库错误", "无法加载医生排班信息。");
+        qDebug() << "查询已预约时间失败: " << query.lastError().text();
         return;
     }
-
-    if (query.size() > 0) {
-        while (query.next()) {
-            ui->timeSlotsListWidget->addItem(query.value(0).toString());
-        }
-    } else {
-        // 如果查询结果为空，说明当天没有可用的排班
-        ui->timeSlotsListWidget->addItem("本日无可用排班");
-        ui->timeSlotsListWidget->setEnabled(false);
+    while (query.next()) {
+        bookedTimes.insert(query.value(0).toDateTime().time());
     }
+
+    // 3. 将未被预约的时间段添加到列表中
+    for (const QTime &time : workingHours) {
+        if (!bookedTimes.contains(time)) {
+            ui->timeSlotsListWidget->addItem(time.toString("HH:mm"));
+        }
+    }
+
+    if (ui->timeSlotsListWidget->count() == 0) {
+        ui->timeSlotsListWidget->addItem("本日已约满或无排班");
+        ui->timeSlotsListWidget->setEnabled(false);
+    } else {
+        ui->timeSlotsListWidget->setEnabled(true);
+    }
+}
+
+
+void TimeSelectionDialog::on_calendarWidget_clicked(const QDate &date)
+{
+    updateAvailableTimes(date);
 }
 
 void TimeSelectionDialog::on_timeSlotsListWidget_itemClicked(QListWidgetItem *item)
 {
-    if (item->text() != "本日无可用排班") {
+    if (item->text() != "本日已约满或无排班") {
         ui->confirmButton->setEnabled(true);
     }
 }
 
-
-// ============== 核心修改部分 2 ==============
-// 我们需要使用“数据库事务”来确保数据的一致性
 void TimeSelectionDialog::on_confirmButton_clicked()
 {
     QDate selectedDate = ui->calendarWidget->selectedDate();
     if (!ui->timeSlotsListWidget->currentItem()) {
-        QMessageBox::warning(this, "提示", "请选择一个预约时间段。");
+        QMessageBox::warning(this, "提示", "请选择一个预约时间点。");
         return;
     }
-    QString selectedTime = ui->timeSlotsListWidget->currentItem()->text();
+    QTime selectedTime = QTime::fromString(ui->timeSlotsListWidget->currentItem()->text(), "HH:mm");
+    QDateTime scheduledAt(selectedDate, selectedTime);
 
-    // 获取数据库连接
-    QSqlDatabase db = QSqlDatabase::database(); // 获取默认连接
-    // 开始一个事务
-    if (!db.transaction()) {
-        qDebug() << "开启事务失败: " << db.lastError().text();
-        QMessageBox::critical(this, "数据库错误", "无法处理您的请求。");
-        return;
-    }
+    QSqlQuery query;
+    // 新的 INSERT 语句，适配 appointments 表
+    query.prepare("INSERT INTO appointments (patient_id, doctor_id, scheduled_at, status) "
+                  "VALUES (:patientId, :doctorId, :scheduledAt, 'booked')");
+    query.bindValue(":patientId", m_patientId);
+    query.bindValue(":doctorId", m_doctorId);
+    query.bindValue(":scheduledAt", scheduledAt);
 
-    bool success = true;
-
-    // 步骤1：在 doctor_schedules 表中将该时间段标记为“已预定”
-    QSqlQuery updateQuery;
-    updateQuery.prepare("UPDATE doctor_schedules SET is_booked = TRUE "
-                        "WHERE doctor_id = :doctorId AND schedule_date = :appDate AND time_slot = :appTime AND is_booked = FALSE");
-    updateQuery.bindValue(":doctorId", m_doctorId);
-    updateQuery.bindValue(":appDate", selectedDate);
-    updateQuery.bindValue(":appTime", selectedTime);
-
-    if (!updateQuery.exec() || updateQuery.numRowsAffected() != 1) {
-        // 如果更新失败，或者影响的行数不等于1 (可能意味着在你点击确认的瞬间，这个时间段被别人抢了)
-        success = false;
-        qDebug() << "锁定排班失败或时间段已被预约: " << updateQuery.lastError().text();
-    }
-
-    // 步骤2：如果锁定成功，则在 appointments 表中插入新的预约记录
-    if (success) {
-        QSqlQuery insertQuery;
-        insertQuery.prepare("INSERT INTO appointments (patient_id, doctor_id, appointment_date, appointment_time) "
-                           "VALUES (:patientId, :doctorId, :appDate, :appTime)");
-        insertQuery.bindValue(":patientId", m_patientId);
-        insertQuery.bindValue(":doctorId", m_doctorId);
-        insertQuery.bindValue(":appDate", selectedDate);
-        insertQuery.bindValue(":appTime", selectedTime);
-        if (!insertQuery.exec()) {
-            success = false;
-            qDebug() << "插入预约记录失败: " << insertQuery.lastError().text();
-        }
-    }
-
-    // 步骤3：根据成功或失败，提交或回滚事务
-    if (success) {
-        db.commit(); // 提交事务，所有更改生效
+    if (query.exec()) {
         QMessageBox::information(this, "预约成功",
-                                 QString("您已成功预约！\n\n日期: %1\n时间: %2\n\n您可以在“我的预约”中查看详情。")
-                                 .arg(selectedDate.toString("yyyy-MM-dd"), selectedTime));
+                                 QString("您已成功预约！\n\n时间: %1\n\n请在“我的预约”中查看详情。")
+                                 .arg(scheduledAt.toString("yyyy-MM-dd HH:mm")));
         this->accept();
     } else {
-        db.rollback(); // 回滚事务，所有更改被撤销
-        QMessageBox::critical(this, "预约失败", "无法完成预约，该时间段可能已被他人预约，请刷新后重试。");
-        // 刷新当前日期的时间段列表
-        on_calendarWidget_clicked(selectedDate);
+        QMessageBox::critical(this, "预约失败", "无法完成预约，数据库错误: " + query.lastError().text());
     }
 }
