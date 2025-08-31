@@ -1,0 +1,4 @@
+/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/PatientClient.dir
+/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/PatientClient_autogen.dir

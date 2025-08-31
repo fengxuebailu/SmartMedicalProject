@@ -20,7 +20,7 @@ PatientInfoDialog::PatientInfoDialog(QWidget *parent) :
 //    // --- 数据库连接 ---
 //    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL", "patient_info_connection"); // 使用命名连接
 //    db.setHostName("127.0.0.1");      // 主机地址
-//    db.setDatabaseName("smart_medical"); // 数据库名
+//    db.setDatabaseName("smart_clinic"); // 数据库名
 //    db.setUserName("root");              // 数据库用户名
 //    db.setPassword("@Aa1146978345");     // !!! 替换成你自己的MySQL root密码 !!!
 
@@ -50,7 +50,7 @@ void PatientInfoDialog::loadPatientData(int patientId)
     QSqlDatabase db = QSqlDatabase::database("patient_info_connection");
     QSqlQuery query(db);
 
-    query.prepare("SELECT name, age, dob, photo_path, id_card, phone, email FROM patient_info WHERE id = :id");
+    query.prepare("SELECT full_name, date_of_birth, photo_path, id_number, phone, email FROM patients WHERE user_id = :id");
     query.bindValue(":id", patientId);
 
     if (!query.exec()) {
@@ -60,12 +60,22 @@ void PatientInfoDialog::loadPatientData(int patientId)
 
     // 如果查询到数据
     if (query.next()) {
-        ui->nameLineEdit->setText(query.value("name").toString());
-        ui->ageLineEdit->setText(query.value("age").toString());
-        ui->dobLineEdit->setText(query.value("dob").toDate().toString("yyyy-MM-dd"));
-        ui->idCardLineEdit->setText(query.value("id_card").toString());
+        ui->nameLineEdit->setText(query.value("full_name").toString());
+        ui->dobLineEdit->setText(query.value("date_of_birth").toDate().toString("yyyy-MM-dd"));
+        ui->idCardLineEdit->setText(query.value("id_number").toString());
         ui->phoneLineEdit->setText(query.value("phone").toString());
         ui->emailLineEdit->setText(query.value("email").toString());
+        QDate dob = query.value("date_of_birth").toDate();
+        ui->dobLineEdit->setText(dob.toString("yyyy-MM-dd"));
+
+        // 计算年龄：当前日期 - 出生日期
+        QDate today = QDate::currentDate();
+        int age = dob.daysTo(today) / 365;  // 粗略计算
+        // 更准确的算法：考虑月份和日子
+        int realAge = today.year() - dob.year();
+        if (today.month() < dob.month() || (today.month() == dob.month() && today.day() < dob.day())) {
+            realAge--;
+        }
 
         // 加载并显示照片
         QString photoPath = query.value("photo_path").toString();
@@ -124,14 +134,15 @@ void PatientInfoDialog::on_editSaveButton_clicked()
         QSqlDatabase db = QSqlDatabase::database("patient_info_connection");
         QSqlQuery query(db);
 
-        query.prepare("UPDATE patient_info SET name = :name, age = :age, dob = :dob, "
-                      "phone = :phone, email = :email WHERE id = :id");
-        query.bindValue(":name", name);
-        query.bindValue(":age", age);
-        query.bindValue(":dob", dob);
+        query.prepare("UPDATE patients SET full_name = :full_name, date_of_birth = :date_of_birth, "
+                      "phone = :phone, email = :email WHERE user_id = :id");
+        query.bindValue(":full_name", name);
+
+        query.bindValue(":date_of_birth", dob);
         query.bindValue(":phone", phone);
         query.bindValue(":email", email);
-        query.bindValue(":id", m_patientId); // 使用我们之前保存的ID
+        query.bindValue(":id", m_patientId);
+        // 使用我们之前保存的ID
 
         if (query.exec()) {
             // 如果执行成功

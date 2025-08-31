@@ -30,12 +30,12 @@ void EmrDialog::loadPatientRecords(int patientId)
 
     QSqlQuery query;
     // 查询该患者的所有病历，并关联医生表以获取医生姓名
-    query.prepare("SELECT mr.id, mr.visit_date, d.name "
-                  "FROM medical_records mr "
-                  "JOIN appointments a ON mr.appointment_id = a.id "
+    query.prepare("SELECT patient_id, visit_time, doctor_id "
+                  "FROM medical_records ");
+                  /*"JOIN appointments a ON mr.appointment_id = a.id "
                   "JOIN doctors d ON a.doctor_id = d.id "
                   "WHERE mr.patient_id = :patientId "
-                  "ORDER BY mr.visit_date DESC");
+                  "ORDER BY mr.visit_date DESC"*/
     query.bindValue(":patientId", m_patientId);
 
     if (!query.exec()) {
@@ -88,14 +88,16 @@ void EmrDialog::displayRecordDetails(int recordId)
 {
     QSqlQuery query;
     // 这是一个更复杂的查询，需要关联4张表才能获取所有信息
-    query.prepare("SELECT mr.visit_date, d.name, dep.name, mr.chief_complaint, "
+    query.prepare("SELECT id, visit_time, chief_complaint, diagnosis, notes, bp_systolic, bp_diastolic, heart_rate FROM medical_records WHERE id = :recordId");
+
+    /*SELECT mr.visit_date, d.name, dep.name, mr.chief_complaint, "
                   "mr.diagnosis, mr.treatment_plan, mr.doctor_notes "
                   "FROM medical_records mr "
                   "JOIN appointments a ON mr.appointment_id = a.id "
                   "JOIN doctors d ON a.doctor_id = d.id "
                   "JOIN departments dep ON d.department_id = dep.id "
-                  "WHERE mr.id = :recordId");
-    query.bindValue(":recordId", recordId);
+                  "WHERE mr.id = :recordId*/
+     query.bindValue(":recordId", recordId);
 
     if (!query.exec()) {
         qDebug() << "查询病历详情失败: " << query.lastError().text();

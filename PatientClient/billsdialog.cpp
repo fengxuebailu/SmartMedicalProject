@@ -34,7 +34,7 @@ void BillsDialog::loadBills(int patientId)
     ui->billsTableWidget->setRowCount(0);
 
     QSqlQuery query;
-    query.prepare("SELECT id, item_name, amount, status FROM bills WHERE patient_id = :patientId ORDER BY status, created_at DESC");
+    query.prepare("SELECT id, item_name, amount, status FROM payment WHERE patient_id = :patientId ORDER BY status, created_at DESC");
     query.bindValue(":patientId", m_patientId);
 
     if (!query.exec()) {
