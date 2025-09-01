@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient
+CMAKE_SOURCE_DIR = /home/fengxuebailu/PatientClient
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug
@@ -189,6 +189,60 @@ billsdialog.s: billsdialog.cpp.s
 billsdialog.cpp.s:
 	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/billsdialog.cpp.s
 .PHONY : billsdialog.cpp.s
+
+chatdialog.o: chatdialog.cpp.o
+
+.PHONY : chatdialog.o
+
+# target to build an object file
+chatdialog.cpp.o:
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatdialog.cpp.o
+.PHONY : chatdialog.cpp.o
+
+chatdialog.i: chatdialog.cpp.i
+
+.PHONY : chatdialog.i
+
+# target to preprocess a source file
+chatdialog.cpp.i:
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatdialog.cpp.i
+.PHONY : chatdialog.cpp.i
+
+chatdialog.s: chatdialog.cpp.s
+
+.PHONY : chatdialog.s
+
+# target to generate assembly for a file
+chatdialog.cpp.s:
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatdialog.cpp.s
+.PHONY : chatdialog.cpp.s
+
+chatmessagewidget.o: chatmessagewidget.cpp.o
+
+.PHONY : chatmessagewidget.o
+
+# target to build an object file
+chatmessagewidget.cpp.o:
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o
+.PHONY : chatmessagewidget.cpp.o
+
+chatmessagewidget.i: chatmessagewidget.cpp.i
+
+.PHONY : chatmessagewidget.i
+
+# target to preprocess a source file
+chatmessagewidget.cpp.i:
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.i
+.PHONY : chatmessagewidget.cpp.i
+
+chatmessagewidget.s: chatmessagewidget.cpp.s
+
+.PHONY : chatmessagewidget.s
+
+# target to generate assembly for a file
+chatmessagewidget.cpp.s:
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.s
+.PHONY : chatmessagewidget.cpp.s
 
 doctordetailsdialog.o: doctordetailsdialog.cpp.o
 
@@ -476,6 +530,12 @@ help:
 	@echo "... billsdialog.o"
 	@echo "... billsdialog.i"
 	@echo "... billsdialog.s"
+	@echo "... chatdialog.o"
+	@echo "... chatdialog.i"
+	@echo "... chatdialog.s"
+	@echo "... chatmessagewidget.o"
+	@echo "... chatmessagewidget.i"
+	@echo "... chatmessagewidget.s"
 	@echo "... doctordetailsdialog.o"
 	@echo "... doctordetailsdialog.i"
 	@echo "... doctordetailsdialog.s"

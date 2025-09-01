@@ -8,21 +8,51 @@
 #include "timeselectiondialog.h"
 #include "billsdialog.h"
 #include "emrdialog.h"
+#include "chatdialog.h"
 #include <QDebug>
+#include <QSqlQuery> // 需要包含，以便查询患者姓名
+#include <QDate>     // 需要包含，以便使用日期功能
+#include <QPainter>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    m_loggedInUserId = 101; ; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
+    m_loggedInUserId = 2; ; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
 
-//    QPixmap testPixmap(":/icons/icon_home_profile.png"); // <-- 替换成你的正确路径
-//     if (testPixmap.isNull()) {
-//         qDebug() << "致命错误：无法从资源文件加载图标 :/icons/icon_home_profile.png";
-//     } else {
-//         qDebug() << "成功：从资源文件加载了图标，尺寸为：" << testPixmap.size();
-//     }
+    // --- 加载并设置欢迎语 ---
+    loadWelcomeMessage();
+
+    // --- 动态设置每日提示 ---
+    setDailyTip();
+
+    // --- 在构造函数中加载并预处理背景图 ---
+    QPixmap originalPixmap(":/backgrounds/bg_main_window.jpg");
+    if (!originalPixmap.isNull()) {
+        // 将图片预先缩放到一个常见的大尺寸，比如 1280x720
+        // 使用 SmoothTransformation 可以获得更好的缩放质量
+        m_backgroundPixmap = originalPixmap.scaled(1280, 720, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    } else {
+        qDebug() << "警告：无法加载背景图片，paintEvent 将不会绘制背景。";
+    }
+
+//    // --- 添加以下验证代码 ---
+//        QPixmap testPixmap(":/icons/bg_main_window.png");
+//        if (testPixmap.isNull()) {
+//            qDebug() << "【验证失败】: 无法从资源路径 ':/backgrounds/bg_main_window.png' 加载图片。请检查 .qrc 文件中的前缀和文件名。";
+//        } else {
+//            qDebug() << "【验证成功】: 成功从资源路径 ':/backgrounds/bg_main_window.png' 加载了图片！尺寸为：" << testPixmap.size();
+//        }
+
+//        // 我们再试一个图标路径
+//        QPixmap testIcon(":/icons/icon_home_doctor1.png"); // 假设这是你的一个图标
+//        if (testIcon.isNull()) {
+//             qDebug() << "【验证失败】: 无法从资源路径 ':/icons/icon_home_profile.png' 加载图标。";
+//        } else {
+//             qDebug() << "【验证成功】: 成功从资源路径 ':/icons/icon_home_profile.png' 加载了图标！";
+//        }
+//        // -----------------------
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +62,39 @@ MainWindow::~MainWindow()
 
 // 以下是每个按钮点击事件的实现
 // 在实际项目中，您会在这里创建并显示新的窗口或执行相应的功能
+
+// 我们将加载欢迎语的逻辑也封装成一个函数
+void MainWindow::loadWelcomeMessage()
+{
+    QSqlQuery query;
+    query.prepare("SELECT full_name FROM patients WHERE user_id = :userId");
+    query.bindValue(":userId", m_loggedInUserId);
+    if (query.exec() && query.next()) {
+        ui->patientNameLabel->setText(query.value(0).toString());
+    } else {
+        ui->patientNameLabel->setText("家长");
+    }
+}
+
+// 设置每日提示的函数
+void MainWindow::setDailyTip()
+{
+    // 创建一个提示语列表
+    QStringList tips;
+    tips << "天气转凉，记得及时给宝宝增添衣物哦！"
+         << "多带宝宝去户外活动，晒晒太阳有助于钙的吸收。"
+         << "你知道吗？宝宝的第一次牙科检查应该在第一颗牙萌出后进行。"
+         << "鼓励宝宝多喝水，而不是含糖饮料，对牙齿和身体都好。"
+         << "每天给宝宝读一个绘本故事，是最好的亲子时光！"
+         << "今天你和宝宝一起大笑了吗？好心情是最好的免疫力！";
+
+    // 根据当天的日期，从列表中选择一条提示
+    // 这样可以确保每天的提示都是固定的，而不是每次启动都变
+    int dayOfYear = QDate::currentDate().dayOfYear();
+    int tipIndex = dayOfYear % tips.size(); // 使用取余运算来循环选择
+
+    ui->tipsLabel->setText(tips.at(tipIndex));
+}
 
 void MainWindow::on_patientInfoButton_clicked()
 {
@@ -73,26 +136,12 @@ void MainWindow::on_emrButton_clicked()
     dialog.exec();
 }
 
-void MainWindow::on_healthRecordButton_clicked()
-{
-    QMessageBox::information(this, "健康档案管理", "这里将打开健康档案管理界面。");
-}
-
-void MainWindow::on_medicationReminderButton_clicked()
-{
-    QMessageBox::information(this, "用药提醒", "这里将打开用药提醒设置界面。");
-}
 
 void MainWindow::on_paymentButton_clicked()
 {
     BillsDialog dialog(this);
     dialog.loadBills(m_loggedInUserId); // 传入已登录的患者ID
     dialog.exec();
-}
-
-void MainWindow::on_chatButton_clicked()
-{
-    QMessageBox::information(this, "聊天/消息通知", "这里将打开聊天和消息通知中心。");
 }
 
 // --- 实现“我的预约”按钮的槽函数 ---
@@ -132,4 +181,24 @@ void MainWindow::on_consultationButton_clicked()
 
     // 以模态方式显示医生选择对话框。代码会在这里暂停，直到用户关闭 docDialog。
     docDialog.exec();
+}
+
+void MainWindow::on_chatButton_clicked()
+{
+    // 创建并显示聊天对话框
+    ChatDialog dialog(this);
+    // 将当前登录的用户ID传递进去
+    dialog.setup(m_loggedInUserId);
+    dialog.exec();
+}
+
+void MainWindow::paintEvent(QPaintEvent *event)
+{
+    QMainWindow::paintEvent(event); // 首先调用基类的 paintEvent
+
+    if (!m_backgroundPixmap.isNull()) {
+        QPainter painter(this);
+        // 将预处理过的 Pixmap 绘制到窗口上，自动拉伸以填满整个窗口
+        painter.drawPixmap(this->rect(), m_backgroundPixmap);
+    }
 }
