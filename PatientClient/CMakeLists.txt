@@ -68,7 +68,12 @@ else()
     doctordetailsdialog.cpp
     doctordetailsdialog.h
     doctordetailsdialog.ui
-    patientclient.qrc
+    chatdialog.cpp
+    chatdialog.h
+    chatdialog.ui
+    chatmessagewidget.cpp
+    chatmessagewidget.h
+    chatmessagewidget.ui
 
     ${RESOURCE_SOURCES}
   )

@@ -43,7 +43,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient
+CMAKE_SOURCE_DIR = /home/fengxuebailu/PatientClient
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug
@@ -72,6 +72,6 @@ CMakeFiles/PatientClient_autogen.dir/clean:
 .PHONY : CMakeFiles/PatientClient_autogen.dir/clean
 
 CMakeFiles/PatientClient_autogen.dir/depend:
-	cd /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/PatientClient_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fengxuebailu/PatientClient /home/fengxuebailu/PatientClient /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/PatientClient_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PatientClient_autogen.dir/depend
 

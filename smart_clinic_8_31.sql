@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.42, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: smart_clinic
+-- Host: localhost    Database: smart_clinic
 -- ------------------------------------------------------
 -- Server version	5.7.42-0ubuntu0.18.04.1
 
@@ -154,19 +154,20 @@ DROP TABLE IF EXISTS `messages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `messages` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `from_user_id` bigint(20) unsigned NOT NULL,
-  `to_user_id` bigint(20) unsigned NOT NULL,
-  `appointment_id` bigint(20) unsigned DEFAULT NULL,
-  `content` text NOT NULL,
-  `sent_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `conversation_id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sender_id` bigint(20) unsigned NOT NULL,
+  `receiver_id` bigint(20) unsigned NOT NULL,
+  `message_type` enum('text','emoji') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'text',
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `fk_msg_to` (`to_user_id`),
-  KEY `fk_msg_appt` (`appointment_id`),
-  KEY `idx_msg_conv` (`from_user_id`,`to_user_id`,`sent_at`),
-  CONSTRAINT `fk_msg_appt` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`id`) ON DELETE SET NULL,
-  CONSTRAINT `fk_msg_from` FOREIGN KEY (`from_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_msg_to` FOREIGN KEY (`to_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  KEY `sender_id` (`sender_id`),
+  KEY `receiver_id` (`receiver_id`),
+  KEY `idx_conversation_id` (`conversation_id`,`sent_at`),
+  CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,6 +176,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (6,'1_2',2,1,'text','张医生您好，我家宝宝这两天有点咳嗽，要不要紧？','2025-08-31 13:15:00',0),(7,'1_2',1,2,'text','您好，请问宝宝咳嗽有痰吗？精神状态怎么样？','2025-08-31 13:15:00',0),(8,'1_2',2,1,'text','精神还好，就是偶尔咳几声，没有痰。','2025-08-31 13:15:00',0),(9,'1_2',1,2,'text','好的，请注意观察，多给宝宝喝水。如果出现发烧或者精神萎靡，请及时带他来医院。','2025-08-31 13:15:00',0),(10,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 13:15:00',0),(11,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 14:30:45',0),(12,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 14:30:46',0),(13,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 14:30:52',0),(14,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 14:33:59',0),(15,'1_2',2,1,'text','hallo','2025-08-31 14:34:01',0),(16,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 14:52:27',0),(17,'1_2',2,1,'emoji',':/emojis/ok.png','2025-08-31 14:52:28',0),(18,'1_2',2,1,'emoji',':/emojis/EMOJI_1.png','2025-08-31 15:04:48',0);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,14 +342,6 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'doctor','doc_zhang','hash_here',NULL,'doc@demo.com','2025-08-28 01:04:01','2025-08-28 01:04:01'),(2,'patient','pat_liu','hash_here',NULL,'pat@demo.com','2025-08-28 01:04:01','2025-08-28 01:04:01');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'smart_clinic'
---
-
---
--- Dumping routines for database 'smart_clinic'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -358,4 +352,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-30 19:31:43
+-- Dump completed on 2025-08-31  8:18:28
