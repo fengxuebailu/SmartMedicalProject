@@ -9,6 +9,7 @@
 #include "billsdialog.h"
 #include "emrdialog.h"
 #include "Aidialog.h"
+#include "chatdialog.h"
 #include <QDebug>
 #include <QSqlQuery>
 #include <QDate>
@@ -85,16 +86,6 @@ void MainWindow::on_emrButton_clicked()
     dialog.exec();
 }
 
-void MainWindow::on_healthRecordButton_clicked()
-{
-    QMessageBox::information(this, "健康档案管理", "这里将打开健康档案管理界面。");
-}
-
-void MainWindow::on_medicationReminderButton_clicked()
-{
-    QMessageBox::information(this, "用药提醒", "这里将打开用药提醒设置界面。");
-}
-
 void MainWindow::on_paymentButton_clicked()
 {
     BillsDialog dialog(this);
@@ -104,7 +95,18 @@ void MainWindow::on_paymentButton_clicked()
 
 void MainWindow::on_chatButton_clicked()
 {
-    QMessageBox::information(this, "聊天/消息通知", "这里将打开聊天和消息通知中心。");
+    // 1. 创建我们功能强大的 ChatDialog 的一个实例。
+    //    参数 this 将主窗口设为它的父窗口。
+    ChatDialog dialog(this);
+
+    // 2. 调用 ChatDialog 的公共入口函数 setup()。
+    //    这一步将当前登录用户的 ID (m_loggedInUserId) 传递给聊天对话框，
+    //    让它知道“我是谁”，以便加载正确的联系人和聊天记录。
+    dialog.setup(m_loggedInUserId);
+
+    // 3. 以模态方式显示聊天窗口。
+    //    程序会在这里暂停，直到用户关闭聊天对话框。
+    dialog.exec();
 }
 
 // --- 实现“我的预约”按钮的槽函数 ---

@@ -21,8 +21,6 @@ private slots:
     void on_consultationButton_clicked();
     void on_doctorInfoButton_clicked();
     void on_emrButton_clicked();
-    void on_healthRecordButton_clicked();
-    void on_medicationReminderButton_clicked();
     void on_paymentButton_clicked();
     void on_chatButton_clicked();
     void on_myAppointmentsButton_clicked();

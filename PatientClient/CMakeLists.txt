@@ -72,12 +72,12 @@ add_executable(PatientClient
     # Aidialog.ui # 如果有 .ui 文件，也需要加进来
 
     # 聊天功能 (来自你)
-    # chatdialog.h
-    # chatdialog.cpp
-    # chatdialog.ui
-    # chatmessagewidget.h
-    # chatmessagewidget.cpp
-    # chatmessagewidget.ui
+    chatdialog.h
+    chatdialog.cpp
+    chatdialog.ui
+    chatmessagewidget.h
+    chatmessagewidget.cpp
+    chatmessagewidget.ui
 
     # 编译好的资源文件
     ${RESOURCE_SOURCES}

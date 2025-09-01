@@ -4,14 +4,12 @@
         <file alias="icon_home_ai2.png">icons/icon_home_ai2.png</file>
         <file alias="icon_home_calender.png">icons/icon_home_calender.png</file>
         <file alias="icon_home_chat.png">icons/icon_home_chat.png</file>
-        <file alias="icon_home_doctor1.png">icons/icon_home_doctor1.png</file>
         <file alias="icon_home_doctor2.png">icons/icon_home_doctor2.png</file>
         <file alias="icon_home_doctor3.png">icons/icon_home_doctor3.png</file>
         <file alias="icon_home_list.png">icons/icon_home_list.png</file>
         <file alias="icon_home_mdcrcd.png">icons/icon_home_mdcrcd.png</file>
         <file alias="icon_home_psndt.png">icons/icon_home_psndt.png</file>
         <file alias="icon_home_wallet.png">icons/icon_home_wallet.png</file>
-<<<<<<< HEAD
         <file alias="icon_home_doctor1.png">icons/icon_home_doctor1.png</file>
         <file alias="icon_profile_age.png">icons/icon_profile_age.png</file>
         <file alias="icon_profile_birthday.png">icons/icon_profile_birthday.png</file>
@@ -47,7 +45,5 @@
         <file alias="EMOJI_20.png">emojis/icon_lhabzlcmvbo/EMOJI-19.png</file>
         <file alias="EMOJI_21.png">emojis/icon_lhabzlcmvbo/EMOJI-20.png</file>
         <file alias="EMOJI_22.png">emojis/icon_lhabzlcmvbo/EMOJI-21.png</file>
-=======
->>>>>>> main
     </qresource>
 </RCC>

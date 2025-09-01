@@ -43,7 +43,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient
+CMAKE_SOURCE_DIR = /home/fengxuebailu/PatientClient
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug
@@ -57,7 +57,6 @@ include CMakeFiles/PatientClient.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/PatientClient.dir/flags.make
 
-<<<<<<< HEAD
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_ai1.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_ai2.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_calender.png
@@ -99,36 +98,23 @@ qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/emojis/icon_lhabzlcmvbo/
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/emojis/icon_lhabzlcmvbo/EMOJI-19.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/emojis/icon_lhabzlcmvbo/EMOJI-20.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/emojis/icon_lhabzlcmvbo/EMOJI-21.png
-=======
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_ai1.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_ai2.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_calender.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_chat.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_doctor1.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_doctor2.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_doctor3.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_list.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_mdcrcd.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_psndt.png
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/icons/icon_home_wallet.png
->>>>>>> main
 qrc_patientclient.cpp: patientclient.qrc.depends
-qrc_patientclient.cpp: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientclient.qrc
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/patientclient.qrc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qrc_patientclient.cpp"
-	/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/bin/rcc --name patientclient --output /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/qrc_patientclient.cpp /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientclient.qrc
+	/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/bin/rcc --name patientclient --output /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/qrc_patientclient.cpp /home/fengxuebailu/PatientClient/patientclient.qrc
 
 CMakeFiles/PatientClient.dir/main.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/main.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/main.cpp
+CMakeFiles/PatientClient.dir/main.cpp.o: /home/fengxuebailu/PatientClient/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PatientClient.dir/main.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/main.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/main.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/main.cpp.o -c /home/fengxuebailu/PatientClient/main.cpp
 
 CMakeFiles/PatientClient.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/main.cpp > CMakeFiles/PatientClient.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/main.cpp > CMakeFiles/PatientClient.dir/main.cpp.i
 
 CMakeFiles/PatientClient.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/main.cpp -o CMakeFiles/PatientClient.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/main.cpp -o CMakeFiles/PatientClient.dir/main.cpp.s
 
 CMakeFiles/PatientClient.dir/main.cpp.o.requires:
 
@@ -142,17 +128,17 @@ CMakeFiles/PatientClient.dir/main.cpp.o.provides.build: CMakeFiles/PatientClient
 
 
 CMakeFiles/PatientClient.dir/mainwindow.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/mainwindow.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/mainwindow.cpp
+CMakeFiles/PatientClient.dir/mainwindow.cpp.o: /home/fengxuebailu/PatientClient/mainwindow.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PatientClient.dir/mainwindow.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/mainwindow.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/mainwindow.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/mainwindow.cpp.o -c /home/fengxuebailu/PatientClient/mainwindow.cpp
 
 CMakeFiles/PatientClient.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/mainwindow.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/mainwindow.cpp > CMakeFiles/PatientClient.dir/mainwindow.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/mainwindow.cpp > CMakeFiles/PatientClient.dir/mainwindow.cpp.i
 
 CMakeFiles/PatientClient.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/mainwindow.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/mainwindow.cpp -o CMakeFiles/PatientClient.dir/mainwindow.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/mainwindow.cpp -o CMakeFiles/PatientClient.dir/mainwindow.cpp.s
 
 CMakeFiles/PatientClient.dir/mainwindow.cpp.o.requires:
 
@@ -166,17 +152,17 @@ CMakeFiles/PatientClient.dir/mainwindow.cpp.o.provides.build: CMakeFiles/Patient
 
 
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientinfodialog.cpp
+CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/PatientClient/patientinfodialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientinfodialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o -c /home/fengxuebailu/PatientClient/patientinfodialog.cpp
 
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/patientinfodialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientinfodialog.cpp > CMakeFiles/PatientClient.dir/patientinfodialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/patientinfodialog.cpp > CMakeFiles/PatientClient.dir/patientinfodialog.cpp.i
 
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/patientinfodialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientinfodialog.cpp -o CMakeFiles/PatientClient.dir/patientinfodialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/patientinfodialog.cpp -o CMakeFiles/PatientClient.dir/patientinfodialog.cpp.s
 
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o.requires:
 
@@ -190,17 +176,17 @@ CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o.provides.build: CMakeFiles/
 
 
 CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/myappointmentsdialog.cpp
+CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o: /home/fengxuebailu/PatientClient/myappointmentsdialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/myappointmentsdialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o -c /home/fengxuebailu/PatientClient/myappointmentsdialog.cpp
 
 CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/myappointmentsdialog.cpp > CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/myappointmentsdialog.cpp > CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.i
 
 CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/myappointmentsdialog.cpp -o CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/myappointmentsdialog.cpp -o CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.s
 
 CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o.requires:
 
@@ -214,17 +200,17 @@ CMakeFiles/PatientClient.dir/myappointmentsdialog.cpp.o.provides.build: CMakeFil
 
 
 CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctorselectiondialog.cpp
+CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o: /home/fengxuebailu/PatientClient/doctorselectiondialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctorselectiondialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o -c /home/fengxuebailu/PatientClient/doctorselectiondialog.cpp
 
 CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctorselectiondialog.cpp > CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/doctorselectiondialog.cpp > CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.i
 
 CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctorselectiondialog.cpp -o CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/doctorselectiondialog.cpp -o CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.s
 
 CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o.requires:
 
@@ -238,17 +224,17 @@ CMakeFiles/PatientClient.dir/doctorselectiondialog.cpp.o.provides.build: CMakeFi
 
 
 CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/timeselectiondialog.cpp
+CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o: /home/fengxuebailu/PatientClient/timeselectiondialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/timeselectiondialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o -c /home/fengxuebailu/PatientClient/timeselectiondialog.cpp
 
 CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/timeselectiondialog.cpp > CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/timeselectiondialog.cpp > CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.i
 
 CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/timeselectiondialog.cpp -o CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/timeselectiondialog.cpp -o CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.s
 
 CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o.requires:
 
@@ -262,17 +248,17 @@ CMakeFiles/PatientClient.dir/timeselectiondialog.cpp.o.provides.build: CMakeFile
 
 
 CMakeFiles/PatientClient.dir/billsdialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/billsdialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/billsdialog.cpp
+CMakeFiles/PatientClient.dir/billsdialog.cpp.o: /home/fengxuebailu/PatientClient/billsdialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/PatientClient.dir/billsdialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/billsdialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/billsdialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/billsdialog.cpp.o -c /home/fengxuebailu/PatientClient/billsdialog.cpp
 
 CMakeFiles/PatientClient.dir/billsdialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/billsdialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/billsdialog.cpp > CMakeFiles/PatientClient.dir/billsdialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/billsdialog.cpp > CMakeFiles/PatientClient.dir/billsdialog.cpp.i
 
 CMakeFiles/PatientClient.dir/billsdialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/billsdialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/billsdialog.cpp -o CMakeFiles/PatientClient.dir/billsdialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/billsdialog.cpp -o CMakeFiles/PatientClient.dir/billsdialog.cpp.s
 
 CMakeFiles/PatientClient.dir/billsdialog.cpp.o.requires:
 
@@ -286,17 +272,17 @@ CMakeFiles/PatientClient.dir/billsdialog.cpp.o.provides.build: CMakeFiles/Patien
 
 
 CMakeFiles/PatientClient.dir/paymentdialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/paymentdialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/paymentdialog.cpp
+CMakeFiles/PatientClient.dir/paymentdialog.cpp.o: /home/fengxuebailu/PatientClient/paymentdialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PatientClient.dir/paymentdialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/paymentdialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/paymentdialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/paymentdialog.cpp.o -c /home/fengxuebailu/PatientClient/paymentdialog.cpp
 
 CMakeFiles/PatientClient.dir/paymentdialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/paymentdialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/paymentdialog.cpp > CMakeFiles/PatientClient.dir/paymentdialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/paymentdialog.cpp > CMakeFiles/PatientClient.dir/paymentdialog.cpp.i
 
 CMakeFiles/PatientClient.dir/paymentdialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/paymentdialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/paymentdialog.cpp -o CMakeFiles/PatientClient.dir/paymentdialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/paymentdialog.cpp -o CMakeFiles/PatientClient.dir/paymentdialog.cpp.s
 
 CMakeFiles/PatientClient.dir/paymentdialog.cpp.o.requires:
 
@@ -310,17 +296,17 @@ CMakeFiles/PatientClient.dir/paymentdialog.cpp.o.provides.build: CMakeFiles/Pati
 
 
 CMakeFiles/PatientClient.dir/emrdialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/emrdialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/emrdialog.cpp
+CMakeFiles/PatientClient.dir/emrdialog.cpp.o: /home/fengxuebailu/PatientClient/emrdialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PatientClient.dir/emrdialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/emrdialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/emrdialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/emrdialog.cpp.o -c /home/fengxuebailu/PatientClient/emrdialog.cpp
 
 CMakeFiles/PatientClient.dir/emrdialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/emrdialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/emrdialog.cpp > CMakeFiles/PatientClient.dir/emrdialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/emrdialog.cpp > CMakeFiles/PatientClient.dir/emrdialog.cpp.i
 
 CMakeFiles/PatientClient.dir/emrdialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/emrdialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/emrdialog.cpp -o CMakeFiles/PatientClient.dir/emrdialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/emrdialog.cpp -o CMakeFiles/PatientClient.dir/emrdialog.cpp.s
 
 CMakeFiles/PatientClient.dir/emrdialog.cpp.o.requires:
 
@@ -334,17 +320,17 @@ CMakeFiles/PatientClient.dir/emrdialog.cpp.o.provides.build: CMakeFiles/PatientC
 
 
 CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
-CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctordetailsdialog.cpp
+CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o: /home/fengxuebailu/PatientClient/doctordetailsdialog.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctordetailsdialog.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o -c /home/fengxuebailu/PatientClient/doctordetailsdialog.cpp
 
 CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctordetailsdialog.cpp > CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/doctordetailsdialog.cpp > CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.i
 
 CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/doctordetailsdialog.cpp -o CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/doctordetailsdialog.cpp -o CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.s
 
 CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o.requires:
 
@@ -357,9 +343,57 @@ CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o.provides: CMakeFiles/Pati
 CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o.provides.build: CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o
 
 
+CMakeFiles/PatientClient.dir/chatdialog.cpp.o: CMakeFiles/PatientClient.dir/flags.make
+CMakeFiles/PatientClient.dir/chatdialog.cpp.o: /home/fengxuebailu/PatientClient/chatdialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PatientClient.dir/chatdialog.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/chatdialog.cpp.o -c /home/fengxuebailu/PatientClient/chatdialog.cpp
+
+CMakeFiles/PatientClient.dir/chatdialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/chatdialog.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/chatdialog.cpp > CMakeFiles/PatientClient.dir/chatdialog.cpp.i
+
+CMakeFiles/PatientClient.dir/chatdialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/chatdialog.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/chatdialog.cpp -o CMakeFiles/PatientClient.dir/chatdialog.cpp.s
+
+CMakeFiles/PatientClient.dir/chatdialog.cpp.o.requires:
+
+.PHONY : CMakeFiles/PatientClient.dir/chatdialog.cpp.o.requires
+
+CMakeFiles/PatientClient.dir/chatdialog.cpp.o.provides: CMakeFiles/PatientClient.dir/chatdialog.cpp.o.requires
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatdialog.cpp.o.provides.build
+.PHONY : CMakeFiles/PatientClient.dir/chatdialog.cpp.o.provides
+
+CMakeFiles/PatientClient.dir/chatdialog.cpp.o.provides.build: CMakeFiles/PatientClient.dir/chatdialog.cpp.o
+
+
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o: CMakeFiles/PatientClient.dir/flags.make
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o: /home/fengxuebailu/PatientClient/chatmessagewidget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o -c /home/fengxuebailu/PatientClient/chatmessagewidget.cpp
+
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengxuebailu/PatientClient/chatmessagewidget.cpp > CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.i
+
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengxuebailu/PatientClient/chatmessagewidget.cpp -o CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.s
+
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.requires:
+
+.PHONY : CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.requires
+
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.provides: CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.requires
+	$(MAKE) -f CMakeFiles/PatientClient.dir/build.make CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.provides.build
+.PHONY : CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.provides
+
+CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.provides.build: CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o
+
+
 CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o: CMakeFiles/PatientClient.dir/flags.make
 CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o: qrc_patientclient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/qrc_patientclient.cpp
 
 CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.i: cmake_force
@@ -383,7 +417,7 @@ CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o: CMakeFiles/PatientClient.dir/flags.make
 CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o: PatientClient_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o -c /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/PatientClient_autogen/mocs_compilation.cpp
 
 CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.i: cmake_force
@@ -417,6 +451,8 @@ PatientClient_OBJECTS = \
 "CMakeFiles/PatientClient.dir/paymentdialog.cpp.o" \
 "CMakeFiles/PatientClient.dir/emrdialog.cpp.o" \
 "CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o" \
+"CMakeFiles/PatientClient.dir/chatdialog.cpp.o" \
+"CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o" \
 "CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o" \
 "CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o"
 
@@ -433,6 +469,8 @@ PatientClient: CMakeFiles/PatientClient.dir/billsdialog.cpp.o
 PatientClient: CMakeFiles/PatientClient.dir/paymentdialog.cpp.o
 PatientClient: CMakeFiles/PatientClient.dir/emrdialog.cpp.o
 PatientClient: CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o
+PatientClient: CMakeFiles/PatientClient.dir/chatdialog.cpp.o
+PatientClient: CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o
 PatientClient: CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o
 PatientClient: CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o
 PatientClient: CMakeFiles/PatientClient.dir/build.make
@@ -441,7 +479,7 @@ PatientClient: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Sql.so.5.12.8
 PatientClient: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Gui.so.5.12.8
 PatientClient: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Core.so.5.12.8
 PatientClient: CMakeFiles/PatientClient.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable PatientClient"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable PatientClient"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PatientClient.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -459,6 +497,8 @@ CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/billsdialog.
 CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/paymentdialog.cpp.o.requires
 CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/emrdialog.cpp.o.requires
 CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o.requires
+CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/chatdialog.cpp.o.requires
+CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o.requires
 CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o.requires
 CMakeFiles/PatientClient.dir/requires: CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o.requires
 
@@ -469,6 +509,6 @@ CMakeFiles/PatientClient.dir/clean:
 .PHONY : CMakeFiles/PatientClient.dir/clean
 
 CMakeFiles/PatientClient.dir/depend: qrc_patientclient.cpp
-	cd /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/PatientClient.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fengxuebailu/PatientClient /home/fengxuebailu/PatientClient /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug /home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug/CMakeFiles/PatientClient.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PatientClient.dir/depend
 
