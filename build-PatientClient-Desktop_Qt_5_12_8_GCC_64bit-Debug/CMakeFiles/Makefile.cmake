@@ -7,10 +7,10 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+  "/home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/CMakeLists.txt"
+  "/home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient/patientclient.qrc"
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
-  "/home/fengxuebailu/PatientClient/CMakeLists.txt"
-  "/home/fengxuebailu/PatientClient/patientclient.qrc"
   "/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/lib/cmake/Qt5/Qt5Config.cmake"
   "/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake"
   "/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake"

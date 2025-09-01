@@ -170,7 +170,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 PatientClient_BINARY_DIR:STATIC=/home/fengxuebailu/Desktop/SmartMedical_Merge/build-PatientClient-Desktop_Qt_5_12_8_GCC_64bit-Debug
 
 //Value Computed by CMake
-PatientClient_SOURCE_DIR:STATIC=/home/fengxuebailu/PatientClient
+PatientClient_SOURCE_DIR:STATIC=/home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient
 
 //Path to a program.
 ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
@@ -263,7 +263,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/fengxuebailu/PatientClient
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
