@@ -12,8 +12,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/PatientClient.dir/paymentdialog.cpp.o"
   "CMakeFiles/PatientClient.dir/emrdialog.cpp.o"
   "CMakeFiles/PatientClient.dir/doctordetailsdialog.cpp.o"
-  "CMakeFiles/PatientClient.dir/chatdialog.cpp.o"
-  "CMakeFiles/PatientClient.dir/chatmessagewidget.cpp.o"
   "CMakeFiles/PatientClient.dir/qrc_patientclient.cpp.o"
   "CMakeFiles/PatientClient.dir/PatientClient_autogen/mocs_compilation.cpp.o"
   "PatientClient.pdb"

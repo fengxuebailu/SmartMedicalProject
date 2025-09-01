@@ -1,4 +1,4 @@
-# Install script for directory: /home/fengxuebailu/PatientClient
+# Install script for directory: /home/fengxuebailu/Desktop/SmartMedical_Merge/PatientClient
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
