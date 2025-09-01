@@ -1715,14 +1715,16 @@ CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDialog
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QFormLayout
-CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGridLayout
+CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGroupBox
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLayout
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton
+CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout
+CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h
@@ -1731,6 +1733,7 @@ CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qformlayout.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgroupbox.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h
 CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o: /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h

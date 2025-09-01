@@ -1716,14 +1716,16 @@ CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDialog
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QFormLayout
- /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGridLayout
+ /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGroupBox
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLayout
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton
+ /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout
+ /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h
@@ -1732,6 +1734,7 @@ CMakeFiles/PatientClient.dir/patientinfodialog.cpp.o
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qformlayout.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+ /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgroupbox.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h
  /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h

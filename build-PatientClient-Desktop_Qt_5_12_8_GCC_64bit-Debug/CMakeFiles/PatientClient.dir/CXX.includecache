@@ -1764,6 +1764,10 @@ qformlayout.h
 qgridlayout.h
 /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
 
+/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGroupBox
+qgroupbox.h
+/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgroupbox.h
+
 /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout
 qboxlayout.h
 /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h
@@ -1998,6 +2002,12 @@ QtWidgets/qlayout.h
 QtWidgets/qwidget.h
 -
 limits.h
+-
+
+/home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgroupbox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
 -
 
 /home/fengxuebailu/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h
@@ -2453,7 +2463,7 @@ QtWidgets/QDialog
 -
 QtWidgets/QFormLayout
 -
-QtWidgets/QGridLayout
+QtWidgets/QGroupBox
 -
 QtWidgets/QHBoxLayout
 -
@@ -2463,7 +2473,11 @@ QtWidgets/QLineEdit
 -
 QtWidgets/QPushButton
 -
+QtWidgets/QSpacerItem
+-
 QtWidgets/QVBoxLayout
+-
+QtWidgets/QWidget
 -
 
 PatientClient_autogen/include/ui_paymentdialog.h

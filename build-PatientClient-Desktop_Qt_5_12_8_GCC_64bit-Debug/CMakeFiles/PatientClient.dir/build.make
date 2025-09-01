@@ -68,6 +68,13 @@ qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_mdcrcd.p
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_psndt.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_wallet.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_home_doctor1.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_age.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_birthday.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_email.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_idcard.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_idcard2.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_name.png
+qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/icons/icon_profile_phone.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/backgrounds/bg_main_window.jpg
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/emojis/icon_lhabzlcmvbo/EMOJI-.png
 qrc_patientclient.cpp: /home/fengxuebailu/PatientClient/emojis/icon_lhabzlcmvbo/EMOJI-1.png

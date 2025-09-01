@@ -11,6 +11,13 @@
         <file alias="icon_home_psndt.png">icons/icon_home_psndt.png</file>
         <file alias="icon_home_wallet.png">icons/icon_home_wallet.png</file>
         <file alias="icon_home_doctor1.png">icons/icon_home_doctor1.png</file>
+        <file alias="icon_profile_age.png">icons/icon_profile_age.png</file>
+        <file alias="icon_profile_birthday.png">icons/icon_profile_birthday.png</file>
+        <file alias="icon_profile_email.png">icons/icon_profile_email.png</file>
+        <file alias="icon_profile_idcard.png">icons/icon_profile_idcard.png</file>
+        <file alias="icon_profile_idcard2.png">icons/icon_profile_idcard2.png</file>
+        <file alias="icon_profile_phone.png">icons/icon_profile_name.png</file>
+        <file>icons/icon_profile_phone.png</file>
     </qresource>
     <qresource prefix="/backgrounds">
         <file alias="bg_main_window.jpg">backgrounds/bg_main_window.jpg</file>
