@@ -10,14 +10,17 @@
 #include "emrdialog.h"
 #include "Aidialog.h"
 #include <QDebug>
+#include <QSqlQuery>
+#include <QDate>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    m_loggedInUserId = 101; ; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
-
+    m_loggedInUserId = 2; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
+    loadWelcomeMessage();
+    setDailyTip();
 //    QPixmap testPixmap(":/icons/icon_home_profile.png"); // <-- 替换成你的正确路径
 //     if (testPixmap.isNull()) {
 //         qDebug() << "致命错误：无法从资源文件加载图标 :/icons/icon_home_profile.png";
@@ -141,4 +144,40 @@ void MainWindow::on_consultationButton_clicked()
 
     // 以模态方式显示医生选择对话框。代码会在这里暂停，直到用户关闭 docDialog。
     docDialog.exec();
+}
+
+void MainWindow::loadWelcomeMessage()
+{
+    QSqlQuery query;
+    // 使用新数据库的表名和字段名
+    query.prepare("SELECT full_name FROM patients WHERE user_id = :userId");
+    query.bindValue(":userId", m_loggedInUserId);
+
+    if (query.exec() && query.next()) {
+        // 将欢迎语和患者姓名分开设置
+        ui->welcomeLabel->setText("欢迎您,");
+        ui->patientNameLabel->setText(query.value(0).toString());
+    } else {
+        // 查询失败或找不到用户时的默认显示
+        ui->welcomeLabel->setText("欢迎您,");
+        ui->patientNameLabel->setText("家长");
+    }
+}
+
+void MainWindow::setDailyTip()
+{
+    // 创建一个提示语列表
+    QStringList tips;
+    tips << "天气转凉，记得及时给宝宝增添衣物哦！"
+         << "多带宝宝去户外活动，晒晒太阳有助于钙的吸收。"
+         << "你知道吗？宝宝的第一次牙科检查应该在第一颗牙萌出后进行。"
+         << "鼓励宝宝多喝水，而不是含糖饮料，对牙齿和身体都好。"
+         << "每天给宝宝读一个绘本故事，是最好的亲子时光！"
+         << "今天你和宝宝一起大笑了吗？好心情是最好的免疫力！";
+
+    // 根据当天的日期，从列表中选择一条提示
+    int dayOfYear = QDate::currentDate().dayOfYear();
+    int tipIndex = dayOfYear % tips.size(); // 使用取余运算来循环选择
+
+    ui->tipsLabel->setText(tips.at(tipIndex));
 }

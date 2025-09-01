@@ -27,6 +27,8 @@ private slots:
     void on_chatButton_clicked();
     void on_myAppointmentsButton_clicked();
     void on_aiButton_clicked();
+    void loadWelcomeMessage();
+    void setDailyTip();
 
 
 private:

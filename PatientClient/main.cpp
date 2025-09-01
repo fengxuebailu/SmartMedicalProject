@@ -17,7 +17,7 @@ bool initDatabase()
     db.setHostName("127.0.0.1");         // 主机地址
     db.setDatabaseName("smart_clinic");    // 数据库名
     db.setUserName("qtuser");                 // 数据库用户名
-    db.setPassword("password123"); // !!! 替换成你设置的那个强密码 !!!
+    db.setPassword("A_Secure_Password_For_Qt!123"); // !!! 替换成你设置的那个强密码 !!!
 
     if (!db.open()) {
         // 如果连接失败，通过 QMessageBox 显示一个致命错误对话框
