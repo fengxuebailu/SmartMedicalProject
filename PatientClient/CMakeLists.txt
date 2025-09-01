@@ -6,77 +6,83 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+# set(CMAKE_AUTORCC ON) # 我们使用 qt5_add_resources，这个可以关闭
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check http://doc.qt.io/qt-5/deployment-android.html for more information.
-# They need to be set before the find_package(Qt5 ...) call.
+# 查找所有需要的 Qt 组件，包括 Widgets, Sql, 和 Network
+find_package(Qt5 COMPONENTS Widgets Sql Network REQUIRED)
 
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
+# ==================== 资源文件处理 ====================
+set(RESOURCE_FILES
+    patientclient.qrc
+)
+qt5_add_resources(RESOURCE_SOURCES ${RESOURCE_FILES})
+# ======================================================
 
-find_package(Qt5 COMPONENTS Widgets Sql REQUIRED)
 
-if(ANDROID)
-  add_library(PatientClient SHARED
+# ==================== 源文件列表 ====================
+add_executable(PatientClient
+    # 主程序文件
     main.cpp
-    mainwindow.cpp
     mainwindow.h
+    mainwindow.cpp
     mainwindow.ui
-  )
-else()
-    set(RESOURCE_FILES
-        patientclient.qrc
-    )
-    qt5_add_resources(RESOURCE_SOURCES ${RESOURCE_FILES})
 
-  add_executable(PatientClient
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    patientinfodialog.cpp
+    # 个人资料
     patientinfodialog.h
+    patientinfodialog.cpp
     patientinfodialog.ui
-    myappointmentsdialog.cpp
+
+    # 我的预约
     myappointmentsdialog.h
+    myappointmentsdialog.cpp
     myappointmentsdialog.ui
-    doctorselectiondialog.cpp
+
+    # 预约流程
     doctorselectiondialog.h
+    doctorselectiondialog.cpp
     doctorselectiondialog.ui
-    timeselectiondialog.cpp
     timeselectiondialog.h
+    timeselectiondialog.cpp
     timeselectiondialog.ui
-    billsdialog.cpp
+
+    # 支付功能
     billsdialog.h
+    billsdialog.cpp
     billsdialog.ui
-    paymentdialog.cpp
     paymentdialog.h
+    paymentdialog.cpp
     paymentdialog.ui
-    emrdialog.cpp
+
+    # 电子病历
     emrdialog.h
+    emrdialog.cpp
     emrdialog.ui
-    doctordetailsdialog.cpp
+
+    # 医生详情
     doctordetailsdialog.h
+    doctordetailsdialog.cpp
     doctordetailsdialog.ui
-    chatdialog.cpp
-    chatdialog.h
-    chatdialog.ui
-    chatmessagewidget.cpp
-    chatmessagewidget.h
-    chatmessagewidget.ui
 
+    # AI 诊断 (来自队友)
+    Aidialog.h
+    Aidialog.cpp
+    # Aidialog.ui # 如果有 .ui 文件，也需要加进来
+
+    # 聊天功能 (来自你)
+    # chatdialog.h
+    # chatdialog.cpp
+    # chatdialog.ui
+    # chatmessagewidget.h
+    # chatmessagewidget.cpp
+    # chatmessagewidget.ui
+
+    # 编译好的资源文件
     ${RESOURCE_SOURCES}
-  )
-endif()
+)
+# ======================================================
 
-target_link_libraries(PatientClient PRIVATE Qt5::Widgets Qt5::Sql)
+# 链接所有需要的 Qt 库
+target_link_libraries(PatientClient PRIVATE Qt5::Widgets Qt5::Sql Qt5::Network)
