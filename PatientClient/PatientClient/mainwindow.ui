@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ---- 主窗口样式 ---- */
+QMainWindow {
+    background-color: #f5f7fa; /* 设置一个柔和的浅灰色背景 */
+}
+
+/* ---- 欢迎语标签 ---- */
+QLabel#welcomeLabel {
+    font-size: 16px;
+    color: #555;
+    padding-left: 10px;
+}
+QLabel#patientNameLabel {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* ---- 核心功能按钮 (预约挂号) ---- */
+QPushButton#mainAppointmentButton {
+    background-color: #3498db; /* 主题蓝色 */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px; /* 圆角 */
+    padding: 10px;
+    margin: 15px;
+}
+QPushButton#mainAppointmentButton:hover {
+    background-color: #2980b9; /* 鼠标悬浮时颜色变深 */
+}
+QPushButton#mainAppointmentButton:pressed {
+    background-color: #1f618d; /* 鼠标按下时颜色再变深 */
+}
+
+/* ---- 次要功能网格按钮 (QToolButton) ---- */
+QToolButton {
+    background-color: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 13px;
+}
+QToolButton:hover {
+    background-color: #ecf5ff; /* 鼠标悬浮时淡蓝色背景 */
+    border: 1px solid #3498db;
+}
+QToolButton:pressed {
+    background-color: #d9ecff; /* 鼠标按下时 */
+}</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>48</width>
+    <height>48</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="welcomeLabel">
+        <property name="text">
+         <string>欢迎您</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="patientNameLabel">
+        <property name="text">
+         <string>患者姓名</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QToolButton" name="chatButton">
+        <property name="text">
+         <string>聊天/消息</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_chat.png</normaloff>:/icons/icon_home_chat.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QToolButton" name="paymentButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>在线支付</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_wallet.png</normaloff>:/icons/icon_home_wallet.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QToolButton" name="patientInfoButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>个人资料</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_psndt.png</normaloff>:/icons/icon_home_psndt.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QToolButton" name="doctorInfoButton">
+        <property name="text">
+         <string>医生信息</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_doctor3.png</normaloff>:/icons/icon_home_doctor3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QToolButton" name="emrButton">
+        <property name="text">
+         <string>电子病历</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_mdcrcd.png</normaloff>:/icons/icon_home_mdcrcd.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QToolButton" name="aiButton">
+        <property name="text">
+         <string>ai诊断</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_ai1.png</normaloff>:/icons/icon_home_ai1.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>60</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QToolButton" name="myAppointmentsButton">
+        <property name="text">
+         <string>我的预约</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_list.png</normaloff>:/icons/icon_home_list.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QToolButton" name="consultationButton">
+        <property name="text">
+         <string>预约挂号</string>
+        </property>
+        <property name="icon">
+         <iconset resource="patientclient.qrc">
+          <normaloff>:/icons/icon_home_calender.png</normaloff>:/icons/icon_home_calender.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>48</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="patientclient.qrc"/>
+ </resources>
+ <connections/>
+</ui>
