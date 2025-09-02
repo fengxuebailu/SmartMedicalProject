@@ -13,6 +13,70 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* ---- 对话框整体 ---- */
+QDialog#ChatDialog {
+    background-color: #f5f7fa; /* 柔和背景色 */
+}
+
+/* ---- 左侧联系人列表 ---- */
+QListWidget#contactsListWidget {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: white;
+}
+QListWidget#contactsListWidget::item {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+QListWidget#contactsListWidget::item:selected {
+    background-color: #d9ecff; /* 选中时的淡蓝色 */
+    border-left: 3px solid #3498db;
+    color: #2c3e50;
+}
+
+/* ---- 右侧消息列表 ---- */
+QListWidget#messagesListWidget {
+    background-color: #f5f7fa; /* 与背景同色 */
+    border: none;
+}
+
+/* ---- 工具栏按钮 ---- */
+QToolButton {
+    background: transparent;
+    border: none;
+    padding: 5px;
+}
+QToolButton:hover {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+/* ---- 消息输入框 ---- */
+QTextEdit#messageTextEdit {
+    border: 1px solid #dcdfe6;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: white;
+    font-size: 14px;
+}
+
+/* ---- 发送按钮 ---- */
+QPushButton#sendButton {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+}
+QPushButton#sendButton:hover {
+    background-color: #2980b9;
+}
+QPushButton#sendButton:disabled {
+    background-color: #a9cce3;
+}</string>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout_4">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,3">

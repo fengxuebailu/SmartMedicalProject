@@ -15,8 +15,15 @@
         <file alias="icon_profile_email.png">icons/icon_profile_email.png</file>
         <file alias="icon_profile_idcard.png">icons/icon_profile_idcard.png</file>
         <file alias="icon_profile_idcard2.png">icons/icon_profile_idcard2.png</file>
-        <file alias="icon_profile_phone.png">icons/icon_profile_name.png</file>
-        <file>icons/icon_profile_phone.png</file>
+        <file alias="icon_profile_name.png">icons/icon_profile_name.png</file>
+        <file alias="icon_profile_phone.png">icons/icon_profile_phone.png</file>
+        <file alias="icon_video_fanhui.png">icons/icon_video_fanhui.png</file>
+        <file alias="icon_video_xiayishou.png">icons/icon_video_xiayishou.png</file>
+        <file alias="icon_video_yunhang.png">icons/icon_video_yunhang.png</file>
+        <file alias="icon_video_zanting.png">icons/icon_video_zanting.png</file>
+        <file alias="icon_home_island.png">icons/icon_home_island.png</file>
+        <file alias="icon_checkin.png">icons/icon_checkin.png</file>
+        <file alias="icon_home_parternity.png">icons/icon_home_paternity.png</file>
     </qresource>
     <qresource prefix="/backgrounds">
         <file alias="bg_main_window.jpg">backgrounds/bg_main_window.jpg</file>
@@ -44,5 +51,9 @@
         <file alias="EMOJI_20.png">emojis/icon_lhabzlcmvbo/EMOJI-19.png</file>
         <file alias="EMOJI_21.png">emojis/icon_lhabzlcmvbo/EMOJI-20.png</file>
         <file alias="EMOJI_22.png">emojis/icon_lhabzlcmvbo/EMOJI-21.png</file>
+    </qresource>
+    <qresource prefix="/avatars">
+        <file alias="avatar_child.png">avatars/avatar_child.png</file>
+        <file alias="avatar_doctor.png">avatars/avatar_doctor.png</file>
     </qresource>
 </RCC>

@@ -22,39 +22,33 @@ DoctorDetailsDialog::~DoctorDetailsDialog()
 void DoctorDetailsDialog::loadDoctorDetails(int doctorId)
 {
     QSqlQuery query;
-    // 关联 doctors 和 departments 表，一次性获取所有需要的信息
-    query.prepare("SELECT d.name, d.title, d.gender, d.photo_path, d.bio, dep.name "
+    // 确保这里的表名和字段名与你的新数据库匹配
+    query.prepare("SELECT d.full_name, d.title, d.gender, d.photo_path, d.bio, d.department "
                   "FROM doctors d "
-                  "JOIN departments dep ON d.department_id = dep.id "
-                  "WHERE d.id = :doctorId");
+                  "WHERE d.user_id = :doctorId");
     query.bindValue(":doctorId", doctorId);
 
     if (!query.exec() || !query.next()) {
         qDebug() << "查询医生详情失败: " << query.lastError().text();
-        // 可以显示一个错误提示
         return;
     }
 
-    // 从查询结果中取出数据
-    QString name = query.value(0).toString();
-    QString title = query.value(1).toString();
-    QString gender = query.value(2).toString();
-    QString photoPath = query.value(3).toString();
-    QString bio = query.value(4).toString();
-    QString department = query.value(5).toString();
+    QString name = query.value("full_name").toString();
+    QString title = query.value("title").toString();
+    QString gender = query.value("gender").toString();
+    QString photoPath = query.value("photo_path").toString();
+    QString bio = query.value("bio").toString();
+    QString department = query.value("department").toString();
 
-    // 将数据填充到UI控件中
     ui->nameLabel->setText(name);
     ui->titleLabel->setText(title);
     ui->genderLabel->setText("性别：" + gender);
     ui->departmentLabel->setText("科室：" + department);
     ui->bioTextBrowser->setText(bio);
 
-    // 加载并显示医生照片
     if (!photoPath.isEmpty()) {
         QPixmap photo(photoPath);
         if (!photo.isNull()) {
-            // 让图片适应 Label 大小，并保持宽高比
             ui->photoLabel->setPixmap(photo.scaled(ui->photoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
         } else {
             ui->photoLabel->setText("图片加载失败");

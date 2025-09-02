@@ -328,11 +328,18 @@ void ChatDialog::onEmotionSelected(const QString &emotionPath)
 
 void ChatDialog::addMessageToView(const QString &content, const QString &messageType, ChatMessageWidget::MessageDirection direction)
 {
+    // 之前的代码
     QListWidgetItem *item = new QListWidgetItem(ui->messagesListWidget);
     ChatMessageWidget *widget = new ChatMessageWidget(this);
-    widget->setMessage(content, direction, messageType);
+
+    // 先设置消息，这会触发内部尺寸的计算
+    widget->setMessage(content, (direction == ChatMessageWidget::Sent ? ":/avatars/avatar_child.png" : ":/avatars/avatar_doctor.png"), direction, messageType);
+
+    // 【核心】现在 widget->sizeHint() 会返回我们手动计算的、绝对正确的值
     item->setSizeHint(widget->sizeHint());
-    ui->messagesListWidget->setItemWidget(item, widget);
+
+    ui->messagesListWidget->addItem(item); // 先 add 空 item
+    ui->messagesListWidget->setItemWidget(item, widget); // 再把 widget 设置进去
     ui->messagesListWidget->scrollToBottom();
 }
 

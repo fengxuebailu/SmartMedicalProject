@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QMessageBox> // 用于显示简单的消息框
+
+// --- 包含所有需要的头文件 (已合并去重) ---
 #include "patientinfodialog.h"
 #include "myappointmentsdialog.h"
 #include "doctorselectiondialog.h"
@@ -10,165 +11,170 @@
 #include "emrdialog.h"
 #include "Aidialog.h"
 #include "chatdialog.h"
+#include "relaxationdialog.h"
+#include "healthcheckindialog.h" // 新增的功能
+
+#include <QMessageBox>
 #include <QDebug>
 #include <QSqlQuery>
 #include <QDate>
+#include <QGridLayout>
+#include <QToolButton>
+#include <QVBoxLayout>
+#include <QIcon>
 
+// --- 构造函数 ---
+// 合并了两个版本的初始化逻辑
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    m_loggedInUserId = 2; // <-- 添加这一行，为了测试，我们假设ID为1的患者已登录
-    loadWelcomeMessage();
-    setDailyTip();
-//    QPixmap testPixmap(":/icons/icon_home_profile.png"); // <-- 替换成你的正确路径
-//     if (testPixmap.isNull()) {
-//         qDebug() << "致命错误：无法从资源文件加载图标 :/icons/icon_home_profile.png";
-//     } else {
-//         qDebug() << "成功：从资源文件加载了图标，尺寸为：" << testPixmap.size();
-//     }
+    ui->setupUi(this); // 初始化UI界面
+
+    // 设置当前登录用户的ID，这是后续很多功能的基础
+    m_loggedInUserId = 101;
+
+    // 调用初始化函数
+    setupHomeGrid();      // 创建主页的功能按钮网格
+    loadWelcomeMessage(); // 加载欢迎语和患者姓名
+    setDailyTip();        // 设置每日健康小贴士
 }
 
+// --- 析构函数 ---
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-// 以下是每个按钮点击事件的实现
-// 在实际项目中，您会在这里创建并显示新的窗口或执行相应的功能
+// --- 槽函数实现 (Slots Implementation) ---
+// 下面是所有按钮点击事件的实现，已合并去重
 
+// “个人资料”按钮
 void MainWindow::on_patientInfoButton_clicked()
 {
-    // 创建并以模态方式显示个人资料对话框
     PatientInfoDialog dialog(this);
     dialog.exec();
 }
 
-
+// “医生信息”按钮
 void MainWindow::on_doctorInfoButton_clicked()
 {
-    // 步骤1：打开医生选择对话框，这和预约挂号的第一步完全一样
-       DoctorSelectionDialog docDialog(this);
-       docDialog.setWindowTitle("第一步：选择要查看的医生"); // 可以给它一个不同的标题
-
-       // 步骤2：连接其 doctorSelected 信号到一个新的逻辑
-       // 当用户在 docDialog 中选择完医生并点击“下一步”后，下面的 Lambda 函数会被执行
-       connect(&docDialog, &DoctorSelectionDialog::doctorSelected, this,
-               [this](int doctorId, const QString &doctorName) {
-
-           qDebug() << "准备查看医生详情，ID=" << doctorId << "，姓名=" << doctorName;
-
-           // 步骤3：创建并显示医生详情对话框
-           DoctorDetailsDialog detailsDialog(this);
-           // 调用它的公共方法，传入选定的医生ID来加载数据
-           detailsDialog.loadDoctorDetails(doctorId);
-           // 以模态方式显示
-           detailsDialog.exec();
-       });
-
-       // 启动医生选择流程
-       docDialog.exec();
-}
-void MainWindow::on_aiButton_clicked()
-{
-    // 打开 AI 聊天界面
-    Aidialog *dlg = new Aidialog(this);  // 父窗口是 MainWindow
-    dlg->setAttribute(Qt::WA_DeleteOnClose); // 关闭后自动释放内存
-    dlg->resize(900, 640);                // 设置初始大小
-    dlg->show();
-}
-
-void MainWindow::on_emrButton_clicked()
-{
-    EmrDialog dialog(this);
-    dialog.loadPatientRecords(m_loggedInUserId); // 传入已登录的患者ID
-    dialog.exec();
-}
-
-void MainWindow::on_paymentButton_clicked()
-{
-    BillsDialog dialog(this);
-    dialog.loadBills(m_loggedInUserId); // 传入已登录的患者ID
-    dialog.exec();
-}
-
-void MainWindow::on_chatButton_clicked()
-{
-    // 1. 创建我们功能强大的 ChatDialog 的一个实例。
-    //    参数 this 将主窗口设为它的父窗口。
-    ChatDialog dialog(this);
-
-    // 2. 调用 ChatDialog 的公共入口函数 setup()。
-    //    这一步将当前登录用户的 ID (m_loggedInUserId) 传递给聊天对话框，
-    //    让它知道“我是谁”，以便加载正确的联系人和聊天记录。
-    dialog.setup(m_loggedInUserId);
-
-    // 3. 以模态方式显示聊天窗口。
-    //    程序会在这里暂停，直到用户关闭聊天对话框。
-    dialog.exec();
-}
-
-// --- 实现“我的预约”按钮的槽函数 ---
-// 这个槽函数需要你手动去创建，或者在UI设计器里右键按钮 "Go to slot..."
-void MainWindow::on_myAppointmentsButton_clicked()
-{
-    // 创建“我的预约”对话框实例
-    MyAppointmentsDialog dialog(this);
-    // 调用它的公共方法，传入当前登录的患者ID来加载数据
-    dialog.loadAppointments(m_loggedInUserId);
-    // 以模态方式显示对话框
-    dialog.exec();
-}
-
-// --- 修改“在线问诊/预约挂号”按钮的槽函数 ---
-void MainWindow::on_consultationButton_clicked()
-{
-    // 步骤1：创建并显示医生选择对话框
     DoctorSelectionDialog docDialog(this);
+    docDialog.setWindowTitle("第一步：选择要查看的医生");
 
-    // 步骤2：将 docDialog 的 doctorSelected 信号连接到一个处理逻辑上
-    // 这里我们使用 C++11 的 Lambda 表达式，这是现代 Qt 中处理信号槽非常优雅的方式。
-    // 当 docDialog 发射 doctorSelected 信号时，花括号 {} 中的代码就会被执行。
     connect(&docDialog, &DoctorSelectionDialog::doctorSelected, this,
             [this](int doctorId, const QString &doctorName) {
+                qDebug() << "查看医生详情 ID=" << doctorId << " 姓名=" << doctorName;
 
-        // 这里的代码会在用户选择完医生并点击“下一步”之后执行
-        qDebug() << "从主窗口接收到信号：医生ID=" << doctorId << "，医生姓名=" << doctorName;
+                DoctorDetailsDialog detailsDialog(this);
+                detailsDialog.loadDoctorDetails(doctorId);
+                detailsDialog.exec();
+            });
 
-        // 步骤3：创建并显示时间选择对话框
-        TimeSelectionDialog timeDialog(this);
-        // 将从上一步获取的医生信息，以及当前登录的患者信息，传递给时间选择对话框
-        timeDialog.setAppointmentInfo(doctorId, doctorName, m_loggedInUserId);
-        // 以模态方式显示对话框
-        timeDialog.exec();
-    });
-
-    // 以模态方式显示医生选择对话框。代码会在这里暂停，直到用户关闭 docDialog。
     docDialog.exec();
 }
 
+// “AI助手”按钮
+void MainWindow::on_aiButton_clicked()
+{
+    Aidialog *dlg = new Aidialog(this);
+    dlg->setAttribute(Qt::WA_DeleteOnClose); // 设置关闭时自动销毁，避免内存泄漏
+    dlg->resize(900, 640);
+    dlg->show(); // 非模态显示，不阻塞主窗口
+}
+
+// “电子病历”按钮
+void MainWindow::on_emrButton_clicked()
+{
+    EmrDialog dialog(this);
+    dialog.loadPatientRecords(m_loggedInUserId);
+    dialog.exec();
+}
+
+// “支付”按钮
+void MainWindow::on_paymentButton_clicked()
+{
+    BillsDialog dialog(this);
+    dialog.loadBills(m_loggedInUserId);
+    dialog.exec();
+}
+
+// “聊天消息”按钮
+void MainWindow::on_chatButton_clicked()
+{
+    ChatDialog dialog(this);
+    dialog.setup(m_loggedInUserId);
+    dialog.exec();
+}
+
+// “我的预约”按钮
+void MainWindow::on_myAppointmentsButton_clicked()
+{
+    MyAppointmentsDialog dialog(this);
+    dialog.loadAppointments(m_loggedInUserId);
+    dialog.exec();
+}
+
+// “在线问诊/预约挂号”按钮
+void MainWindow::on_consultationButton_clicked()
+{
+    DoctorSelectionDialog docDialog(this);
+
+    connect(&docDialog, &DoctorSelectionDialog::doctorSelected, this,
+            [this](int doctorId, const QString &doctorName) {
+                qDebug() << "预约医生 ID=" << doctorId << " 姓名=" << doctorName;
+
+                TimeSelectionDialog timeDialog(this);
+                timeDialog.setAppointmentInfo(doctorId, doctorName, m_loggedInUserId);
+                timeDialog.exec();
+            });
+
+    docDialog.exec();
+}
+
+// “放松小岛”按钮
+void MainWindow::on_relaxationButton_clicked()
+{
+    RelaxationDialog dialog(this);
+    dialog.exec();
+}
+
+// “亲子打卡”按钮的槽函数 (这个可能需要你手动在UI设计器中连接)
+// 如果你的UI文件里有 checkinButton, 这个函数就会被触发
+void MainWindow::on_checkinButton_clicked() {
+    onCheckin();
+}
+
+// “亲子打卡”功能的具体实现 (被 setupHomeGrid 和 on_checkinButton_clicked 调用)
+// 记得在 mainwindow.h 中声明: void onCheckin();
+void MainWindow::onCheckin()
+{
+    HealthCheckinDialog dialog(this);
+    dialog.setUserId(m_loggedInUserId);
+    dialog.exec();
+}
+
+// --- 辅助函数 (Helper Functions) ---
+
+// 加载欢迎信息
 void MainWindow::loadWelcomeMessage()
 {
     QSqlQuery query;
-    // 使用新数据库的表名和字段名
     query.prepare("SELECT full_name FROM patients WHERE user_id = :userId");
     query.bindValue(":userId", m_loggedInUserId);
 
     if (query.exec() && query.next()) {
-        // 将欢迎语和患者姓名分开设置
         ui->welcomeLabel->setText("欢迎您,");
         ui->patientNameLabel->setText(query.value(0).toString());
     } else {
-        // 查询失败或找不到用户时的默认显示
         ui->welcomeLabel->setText("欢迎您,");
         ui->patientNameLabel->setText("家长");
     }
 }
 
+// 设置每日提示
 void MainWindow::setDailyTip()
 {
-    // 创建一个提示语列表
     QStringList tips;
     tips << "天气转凉，记得及时给宝宝增添衣物哦！"
          << "多带宝宝去户外活动，晒晒太阳有助于钙的吸收。"
@@ -177,9 +183,50 @@ void MainWindow::setDailyTip()
          << "每天给宝宝读一个绘本故事，是最好的亲子时光！"
          << "今天你和宝宝一起大笑了吗？好心情是最好的免疫力！";
 
-    // 根据当天的日期，从列表中选择一条提示
     int dayOfYear = QDate::currentDate().dayOfYear();
-    int tipIndex = dayOfYear % tips.size(); // 使用取余运算来循环选择
+    int tipIndex = dayOfYear % tips.size();
 
     ui->tipsLabel->setText(tips.at(tipIndex));
+}
+
+// 创建主页网格布局 (采用版本一的实现方式，更灵活)
+void MainWindow::setupHomeGrid()
+{
+    // 创建一个新的网格布局
+    QGridLayout* grid = new QGridLayout;
+    grid->setSpacing(20);
+    grid->setContentsMargins(30, 30, 30, 30);
+
+    // 使用 Lambda 表达式简化按钮的创建过程
+    auto addTile = [&](int row, int col, const QString& label, const QString& iconPath, const QObject* receiver, const char* slot) {
+        QToolButton* btn = new QToolButton;
+        btn->setText(label);
+        btn->setIcon(QIcon(iconPath));
+        btn->setIconSize(QSize(64, 64));
+        btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+        btn->setFixedSize(120, 100);
+        connect(btn, SIGNAL(clicked()), receiver, slot);
+        grid->addWidget(btn, row, col);
+    };
+
+    // 添加所有功能按钮
+    addTile(0, 0, tr("个人资料"),     ":/icons/icon_home_psndt.png",       this, SLOT(on_patientInfoButton_clicked()));
+    addTile(0, 1, tr("聊天消息"),     ":/icons/icon_home_chat.png",          this, SLOT(on_chatButton_clicked()));
+    addTile(0, 2, tr("医生信息"),     ":/icons/icon_home_doctor3.png",       this, SLOT(on_doctorInfoButton_clicked()));
+
+    addTile(1, 0, tr("电子病历"),     ":/icons/icon_home_mdcrcd.png",           this, SLOT(on_emrButton_clicked()));
+    addTile(1, 1, tr("放松小岛"),     ":/icons/icon_home_island.png",         this, SLOT(on_relaxationButton_clicked()));
+    addTile(1, 2, tr("亲子打卡"),     ":/icons/icon_home_parternity.png",            this, SLOT(onCheckin()));
+
+    // 注意: “我的预约” 和 “费用账单” 的名字也做了对应修改
+    addTile(2, 0, tr("我的预约"),     ":/icons/icon_home_list.png",  this, SLOT(on_myAppointmentsButton_clicked()));
+    addTile(2, 1, tr("费用账单"),     ":/icons/icon_home_wallet.png",       this, SLOT(on_paymentButton_clicked()));
+    addTile(2, 2, tr("AI助手"),       ":/icons/icon_home_ai1.png",            this, SLOT(on_aiButton_clicked()));
+
+    // 将创建好的网格布局设置到UI设计器中的 homeGridContainer 控件上
+    // 这样做可以让你在设计器里调整 homeGridContainer 的位置和大小，非常方便
+    if (ui->homeGridContainer->layout())
+        delete ui->homeGridContainer->layout();  // 如果已有布局，先删除，防止内存泄漏
+
+    ui->homeGridContainer->setLayout(grid); // 设置新布局
 }
